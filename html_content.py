@@ -5,7 +5,7 @@ import pandas as pd
 
 # Header content
 header_description = (
-    "Analysis of the gold rate from January 1978 to January 2021."
+    "Dashboard for the gold rate from January 1978 to January 2021."
 )
 
 header_content = html.Div(
