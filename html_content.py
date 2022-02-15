@@ -4,7 +4,9 @@ import pandas as pd
 
 
 # Header content
-header_description = "Analyse the gold rate from January 1978 to January 2021."
+header_description = (
+    "Analysis of the gold rate from January 1978 to January 2021."
+)
 
 header_content = html.Div(
     children=[
@@ -61,10 +63,10 @@ date_slider = html.Div(children=[date_slider], className="card")
 curr_dropdown = html.Div(children=[curr_dropdown], className="card")
 pie_chart_old = html.Div(children=[pie_chart_old], className="six columns")
 pie_chart_new = html.Div(children=[pie_chart_new], className="six columns")
-pie_chart = html.Div(
-    children=[pie_chart_old, pie_chart_new], className="rows card"
-)
-bar_chart = html.Div(children=[bar_chart], className="twelve columns card")
+pie_chart = html.Div(children=[pie_chart_old, pie_chart_new], className="rows")
+pie_chart = html.Div(children=[pie_chart], className="card")
+bar_chart = html.Div(children=[bar_chart], className="twelve columns")
+bar_chart = html.Div(children=[bar_chart], className="card")
 
 body_content = html.Div(
     children=[
