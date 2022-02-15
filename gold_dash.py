@@ -5,12 +5,12 @@ import plotly.express as px
 import utils
 import html_content
 
-app = dash.Dash(__name__)
+# add external css
+external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html_content.html_layout
-app.css.append_css(
-    {"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"}
-)
 server = app.server
 
 
