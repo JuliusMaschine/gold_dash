@@ -1,1 +1,1 @@
-web: gunicorn app:server
+web: gunicorn gold-dash:server
