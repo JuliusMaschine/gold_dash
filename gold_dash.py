@@ -21,47 +21,67 @@ server = app.server
         Output("gold-rate-pie-chart-new", "figure"),
         Output("gold-rate-bar-chart", "figure"),
     ],
-    [Input("date-slider", "value"), Input("curr-dropdown", "value")],
+    [
+        Input("date-slider", "value"),
+        Input("curr-dropdown", "value"),
+    ],
 )
 def update_graph(date_value, currency):
 
     graphs, dates = utils.graph_data(date_value, currency)
-
     start_year, end_year = dates
-
     dff, start_pie_data, end_pie_data, diff_bar = graphs
 
     line_graph = px.line(
         dff,
         x="Date",
         y=[currencies for currencies in currency],
-        title=f"Gold Rate in top 6 currencies from {start_year} to {end_year}",
         template="plotly_dark",
+    )
+
+    line_graph.update_layout(
+        title=f"""Gold Rate in top {len(currency)} currencies from {start_year} to {end_year}""",
+        xaxis_title="Date",
+        yaxis_title="Rate",
+        legend_title="Currencies",
     )
 
     old_pie_chart = px.pie(
         values=start_pie_data,
         names=[currencies for currencies in start_pie_data.index],
-        title=f"Gold Rate in top 6 currencies in {start_year}",
         template="plotly_dark",
+    )
+
+    old_pie_chart.update_layout(
+        title=f"Gold Rate in top {len(currency)} currencies from {start_year}",
+        legend_title="Currencies",
     )
 
     new_pie_chart = px.pie(
         values=end_pie_data,
         names=[currencies for currencies in end_pie_data.index],
-        title=f"Gold Rate in top 6 currencies in {end_year}",
         template="plotly_dark",
+    )
+
+    new_pie_chart.update_layout(
+        title=f"Gold Rate in top {len(currency)} currencies from {end_year}",
+        legend_title="Currencies",
     )
 
     bar_chart = px.bar(
         diff_bar,
         x="Countries",
         y="Percentage Growth",
-        title=f"Gold Rate in currencies from {start_year} to {end_year}",
+        title=f"""Gold Rate in {len(currency)} currencies from {start_year} to {end_year}""",
         template="plotly_dark",
     )
 
-    return line_graph, old_pie_chart, new_pie_chart, bar_chart
+    return (
+        line_graph,
+        old_pie_chart,
+        new_pie_chart,
+        bar_chart,
+    )
 
 
 if __name__ == "__main__":
