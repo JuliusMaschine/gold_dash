@@ -40,7 +40,7 @@ def update_graph(date_value, currency):
     )
 
     line_graph.update_layout(
-        title=f"""Gold Rate in top {len(currency)} currencies from {start_year} to {end_year}""",
+        title=f"""Gold Rate against {len(currency)} currencies from {start_year} to {end_year}""",
         xaxis_title="Date",
         yaxis_title="Rate",
         legend_title="Currencies",
@@ -53,7 +53,7 @@ def update_graph(date_value, currency):
     )
 
     old_pie_chart.update_layout(
-        title=f"Gold Rate in top {len(currency)} currencies from {start_year}",
+        title=f"Gold Rate against {len(currency)} currencies from {start_year}",
         legend_title="Currencies",
     )
 
@@ -64,7 +64,7 @@ def update_graph(date_value, currency):
     )
 
     new_pie_chart.update_layout(
-        title=f"Gold Rate in top {len(currency)} currencies from {end_year}",
+        title=f"Gold Rate against {len(currency)} currencies from {end_year}",
         legend_title="Currencies",
     )
 
@@ -72,7 +72,7 @@ def update_graph(date_value, currency):
         diff_bar,
         x="Countries",
         y="Percentage Growth",
-        title=f"""Gold Rate in {len(currency)} currencies from {start_year} to {end_year}""",
+        title=f"""Gold Rate against {len(currency)} currencies from {start_year} to {end_year}""",
         template="plotly_dark",
     )
 

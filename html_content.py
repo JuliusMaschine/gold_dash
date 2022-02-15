@@ -4,9 +4,7 @@ import pandas as pd
 
 
 # Header content
-header_description = (
-    "Dashboard for the gold rate from January 1978 to January 2021."
-)
+header_description = "Dashboard for the gold rate against the top currencies from January 1978 to January 2021."
 
 header_content = html.Div(
     children=[
